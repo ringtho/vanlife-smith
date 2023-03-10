@@ -6,10 +6,6 @@ body {
   margin: 0;
 }
 
-.site-wrapper {
-  background: blue;
-}
-
 h1 {
   margin: 0;
 }
@@ -30,4 +26,10 @@ h1 {
 .home-link {
   margin-left: 10px;
   text-decoration: none;
+  color: #4d4d4d;
+}
+
+.vanlife-link {
+  text-decoration: none;
+  color: #000000;
 }

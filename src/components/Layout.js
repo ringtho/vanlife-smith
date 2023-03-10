@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "./Header"
-import Footer from "./Footer"
+// import Footer from "./Footer"
 import { Outlet } from "react-router-dom"
 
 
@@ -9,7 +9,7 @@ export default function Layout(){
         <div className="site-wrapper">
             <Header />
                 <Outlet />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
