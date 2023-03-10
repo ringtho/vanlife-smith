@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react"
-import { useSearchParams, Link } from "react-router-dom"
+import { useSearchParams, useLocation, Link } from "react-router-dom"
 
 
 export default function Vans(){
 
     const [vans , setVans] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
+    const location = useLocation()
 
     const typeFilter = searchParams.get("type")
 
@@ -23,7 +24,12 @@ export default function Vans(){
 
     const vansEl = displayVans.map((van) => {
         return (
-            <Link to={van.id} key={van.id} className="van-link">
+            <Link 
+                to={van.id} 
+                key={van.id} 
+                className="van-link"
+                state={{type: typeFilter, filter: location.search}}
+            >
                 <div className="van" key={van.id}>
                     <img src={van.imageUrl} alt={van.name} className="van-img"/>
                     <h3>{van.name}</h3>
