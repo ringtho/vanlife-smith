@@ -23,7 +23,7 @@ export default function Vans(){
 
     const vansEl = displayVans.map((van) => {
         return (
-            <Link to={`/vans/${van.id}`} key={van.id} className="van-link">
+            <Link to={van.id} key={van.id} className="van-link">
                 <div className="van" key={van.id}>
                     <img src={van.imageUrl} alt={van.name} className="van-img"/>
                     <h3>{van.name}</h3>
@@ -33,7 +33,7 @@ export default function Vans(){
             </Link>
         )
     })
-    
+
     function createSearchParamString(key, value){
         const sp = new URLSearchParams(searchParams)
         if (value === null){
