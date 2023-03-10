@@ -49,10 +49,19 @@ export default function Vans(){
         <>
         <h1>Explore our Van options</h1>
         <div className="van-filter">
-            <Link to={createSearchParamString("type", "simple")} className="van-type simpleBtn">Simple</Link>
-            <Link to={createSearchParamString("type", "simple")} className="van-type luxuryBtn">Luxury</Link>
-            <Link to="?type=rugged" className="van-type ruggedBtn">Rugged</Link>
-            <Link to="." className="van-type">Clear Filter</Link>
+            <Link 
+                to={createSearchParamString("type", "simple")} 
+                className={`van-type simpleBtn ${typeFilter === "simple"? "selected": ""}`}
+            >Simple</Link>
+            <Link 
+                to={createSearchParamString("type", "luxury")} 
+                className={`van-type luxuryBtn ${typeFilter === "luxury"? "selected": ""}`}
+            >Luxury</Link>
+            <Link 
+                to="?type=rugged" 
+                className={`van-type ruggedBtn ${typeFilter === "rugged"? "selected": ""}`}
+            >Rugged</Link>
+            {typeFilter && <Link to="." className="van-type">Clear Filter</Link>}
         </div>
         {vansEl}
         </>

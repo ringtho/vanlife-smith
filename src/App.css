@@ -85,17 +85,21 @@ main, .header {
   text-decoration: none;
 }
 
-.simpleBtn:hover {
+.simpleBtn:hover,
+.simpleBtn.selected
+ {
   background-color: #E17654;
   color: #FFEAD0;
 }
 
-.luxuryBtn:hover {
+.luxuryBtn:hover,
+.luxuryBtn.selected {
   background-color: #161616;
   color: #FFEAD0;
 }
 
-.ruggedBtn:hover {
+.ruggedBtn:hover,
+.ruggedBtn.selected {
   background-color: #115E59;
   color: #FFEAD0;
 }
