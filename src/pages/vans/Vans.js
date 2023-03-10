@@ -17,24 +17,18 @@ export default function Vans(){
             })
     },[])
 
-    const displayVans = typeFilter ? 
-    vans.filter(van => van.type === typeFilter.toLocaleLowerCase()) :
-    vans
-
-    
+    const displayVans = typeFilter 
+    ? vans.filter(van => van.type === typeFilter.toLocaleLowerCase()) 
+    : vans
 
     const vansEl = displayVans.map((van) => {
         return (
-            <>
-            
-            
             <div className="van" key={van.id}>
                 <img src={van.imageUrl} alt={van.name} className="van-img"/>
                 <h3>{van.name}</h3>
                 <p>${van.price} /day</p>
                 <span className={`van-type ${van.type}`}>{van.type}</span>
             </div>
-            </>
         )
     })
 

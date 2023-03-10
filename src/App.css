@@ -94,3 +94,29 @@ main, .header {
   background-color: #115E59;
   color: #FFEAD0;
 }
+
+.van-detail-img{
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  margin: 16px 0;
+}
+
+.rentBtn{
+  background-color: #FF8C38;
+  width: 100%;
+  padding: 10px 20px;
+  color: #FFFFFF;
+  border: none;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-bottom: 32px;
+}
+
+.van-name {
+  margin-top: 16px;
+}
+
+.van-detail-wrapper > a {
+  color: #161616;
+}
