@@ -33,7 +33,7 @@ export default function Vans(){
             </Link>
         )
     })
-
+    
     function createSearchParamString(key, value){
         const sp = new URLSearchParams(searchParams)
         if (value === null){
