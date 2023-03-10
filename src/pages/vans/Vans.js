@@ -34,12 +34,23 @@ export default function Vans(){
         )
     })
 
+    function createSearchParamString(key, value){
+        const sp = new URLSearchParams(searchParams)
+        if (value === null){
+            sp.delete(key)
+        }else{
+            sp.set(key, value)
+        }
+
+        return `?${sp.toString()}`
+    }
+
     return (
         <>
         <h1>Explore our Van options</h1>
         <div className="van-filter">
-            <Link to="?type=simple" className="van-type simpleBtn">Simple</Link>
-            <Link to="?type=luxury" className="van-type luxuryBtn">Luxury</Link>
+            <Link to={createSearchParamString("type", "simple")} className="van-type simpleBtn">Simple</Link>
+            <Link to={createSearchParamString("type", "simple")} className="van-type luxuryBtn">Luxury</Link>
             <Link to="?type=rugged" className="van-type ruggedBtn">Rugged</Link>
             <Link to="." className="van-type">Clear Filter</Link>
         </div>
