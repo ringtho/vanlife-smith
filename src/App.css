@@ -50,11 +50,47 @@ main, .header {
   font-weight: 600;
   color: #FFEAD0;
   border-radius: 5px;
+}
+
+.simple {
+  background-color: #E17654;
+}
+
+.rugged {
   background-color: #115E59;
+}
+
+.luxury {
+  background-color: #161616;
 }
 
 .van-img {
   max-width: 250px;
   max-height: 250px;
   border-radius: 5px;
+}
+
+.van-filter {
+  margin: 20px 0;
+}
+
+.van-filter > a {
+  color: #4d4d4d;
+  background-color: #FFEAD0;
+  text-decoration: none;
+}
+
+.simpleBtn:hover {
+  background-color: #E17654;
+  color: #FFEAD0;
+}
+
+.luxuryBtn:hover {
+  background-color: #161616;
+  color: #FFEAD0;
+}
+
+.ruggedBtn:hover {
+  background-color: #115E59;
+  color: #FFEAD0;
 }
