@@ -16,7 +16,7 @@ export default function VanDetail(){
     console.log(van)
     return(
             <div className="van-detail-wrapper">
-                <Link to="..">&larr; Back to All Vans</Link>
+                <Link to=".." relative="path">&larr; Back to All Vans</Link>
                 <img src={van.imageUrl} alt={van.name} className="van-detail-img" />
                 <span className={`van-type ${van.type}`}>{van.type}</span>
                 <h1 className="van-name">{van.name}</h1>

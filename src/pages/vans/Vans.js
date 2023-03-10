@@ -23,12 +23,14 @@ export default function Vans(){
 
     const vansEl = displayVans.map((van) => {
         return (
-            <div className="van" key={van.id}>
-                <img src={van.imageUrl} alt={van.name} className="van-img"/>
-                <h3>{van.name}</h3>
-                <p>${van.price} /day</p>
-                <span className={`van-type ${van.type}`}>{van.type}</span>
-            </div>
+            <Link to={`/vans/${van.id}`} key={van.id} className="van-link">
+                <div className="van" key={van.id}>
+                    <img src={van.imageUrl} alt={van.name} className="van-img"/>
+                    <h3>{van.name}</h3>
+                    <p>${van.price} /day</p>
+                    <span className={`van-type ${van.type}`}>{van.type}</span>
+                </div>
+            </Link>
         )
     })
 
