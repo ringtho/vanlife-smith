@@ -11,9 +11,22 @@ export default function Vans(){
             .then(data => setVans(data.vans))
     },[])
 
-    console.log(vans)
+    const vansEl = vans.map((van) => {
+        return (
+            <div className="van">
+                <img src={van.imageUrl} alt={van.name} className="van-img"/>
+                <h3>{van.name}</h3>
+                <p>${van.price} /day</p>
+                <span className="van-type">{van.type}</span>
+            </div>
+        )
+    })
 
     return (
+        <>
         <h1>Explore our Van options</h1>
+        {vansEl}
+        
+        </>
     )
 }
