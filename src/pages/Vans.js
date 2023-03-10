@@ -1,26 +1,29 @@
 import React, {useState, useEffect} from "react"
+import { useSearchParams } from "react-router-dom"
 
 
 export default function Vans(){
 
     const [vans , setVans] = useState([])
-    const [status, setStatus] = useState("idle")
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const typeFilter = searchParams.get("type")
 
     useEffect(()=>{
         fetch('/api/vans')
             .then(res => res.json())
             .then(data => {
-                setStatus("loading")
                 setVans(data.vans)
-                setStatus("idle")
             })
     },[])
 
-    console.log(status)
+    const displayVans = typeFilter ? 
+    vans.filter(van => van.type === typeFilter.toLocaleLowerCase()) :
+    vans
 
-    const vansEl = vans.map((van) => {
+    const vansEl = displayVans.map((van) => {
         return (
-            <div className="van">
+            <div className="van" key={van.id}>
                 <img src={van.imageUrl} alt={van.name} className="van-img"/>
                 <h3>{van.name}</h3>
                 <p>${van.price} /day</p>
