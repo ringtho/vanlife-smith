@@ -1,21 +1,33 @@
 import React, {useState, useEffect} from "react"
 import { useSearchParams, useLocation, Link } from "react-router-dom"
+import { getVans } from "../api"
 
 
 export default function Vans(){
 
     const [vans , setVans] = useState([])
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const location = useLocation()
 
     const typeFilter = searchParams.get("type")
 
+
     useEffect(()=>{
-        fetch('/api/vans')
-            .then(res => res.json())
-            .then(data => {
-                setVans(data.vans)
-            })
+        async function loadData(){
+            setLoading(true)
+            try{
+                const vansArr = await getVans()
+                setVans(vansArr)
+            } catch(err){
+                setError(err)
+            } finally{
+                setLoading(false)
+            }
+            
+        }
+        loadData()
     },[])
 
     const displayVans = typeFilter 
@@ -51,21 +63,32 @@ export default function Vans(){
         return `?${sp.toString()}`
     }
 
+    if(loading){
+        return <h2>Loading.....</h2>
+    }
+
+    if(error){
+        return <h2>Error : {error.message}</h2>
+    }
+
     return (
         <>
         <h1>Explore our Van options</h1>
         <div className="van-filter">
             <Link 
                 to={createSearchParamString("type", "simple")} 
-                className={`van-type simpleBtn ${typeFilter === "simple"? "selected": ""}`}
+                className={`van-type simpleBtn 
+                ${typeFilter === "simple"? "selected": ""}`}
             >Simple</Link>
             <Link 
                 to={createSearchParamString("type", "luxury")} 
-                className={`van-type luxuryBtn ${typeFilter === "luxury"? "selected": ""}`}
+                className={`van-type luxuryBtn 
+                ${typeFilter === "luxury"? "selected": ""}`}
             >Luxury</Link>
             <Link 
                 to="?type=rugged" 
-                className={`van-type ruggedBtn ${typeFilter === "rugged"? "selected": ""}`}
+                className={`van-type ruggedBtn 
+                ${typeFilter === "rugged"? "selected": ""}`}
             >Rugged</Link>
             {typeFilter && <Link to="." className="van-type">Clear Filter</Link>}
         </div>

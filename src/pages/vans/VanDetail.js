@@ -18,10 +18,10 @@ export default function VanDetail(){
     const backPath = location.state?.filter  || ""
     const vanType = location.state?.type || "All"
 
-    console.log(location.state)
     return(
             <div className="van-detail-wrapper">
-                <Link to={`..${backPath}`} relative="path">&larr; Back to {vanType} Vans</Link>
+                <Link to={`..${backPath}`} relative="path"
+                >&larr; Back to {vanType} Vans</Link>
 
                 { van ?(
                 <>
