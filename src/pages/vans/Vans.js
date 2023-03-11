@@ -1,34 +1,16 @@
-import React, {useState, useEffect} from "react"
-import { useSearchParams, useLocation, Link } from "react-router-dom"
+import React from "react"
+import { useSearchParams, useLocation, Link, useLoaderData } from "react-router-dom"
 import { getVans } from "../api"
 
+export function loader(){
+    return getVans()
+}
 
 export default function Vans(){
-
-    const [vans , setVans] = useState([])
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const vans = useLoaderData()
     const [searchParams, setSearchParams] = useSearchParams()
     const location = useLocation()
-
     const typeFilter = searchParams.get("type")
-
-
-    useEffect(()=>{
-        async function loadData(){
-            setLoading(true)
-            try{
-                const vansArr = await getVans()
-                setVans(vansArr)
-            } catch(err){
-                setError(err)
-            } finally{
-                setLoading(false)
-            }
-            
-        }
-        loadData()
-    },[])
 
     const displayVans = typeFilter 
     ? vans.filter(van => van.type === typeFilter.toLocaleLowerCase()) 
@@ -63,13 +45,13 @@ export default function Vans(){
         return `?${sp.toString()}`
     }
 
-    if(loading){
-        return <h2>Loading.....</h2>
-    }
+    // if(loading){
+    //     return <h2>Loading.....</h2>
+    // }
 
-    if(error){
-        return <h2>Error : {error.message}</h2>
-    }
+    // if(error){
+    //     return <h2>Error : {error.message}</h2>
+    // }
 
     return (
         <>

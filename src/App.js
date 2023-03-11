@@ -9,7 +9,7 @@ import {
 import Layout from './components/Layout';
 import Home from "./pages/Home"
 import About from './pages/About'
-import Vans from './pages/vans/Vans'
+import Vans, { loader as VansLoader } from './pages/vans/Vans'
 import VanDetail from './pages/vans/VanDetail';
 import "./server"
 
@@ -19,7 +19,7 @@ function App() {
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
-      <Route path='vans' element={<Vans />} />
+      <Route path='vans' element={<Vans />} loader={VansLoader}/>
       <Route path='vans/:id' element={<VanDetail />} />
     </Route>
   ))
