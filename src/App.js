@@ -1,5 +1,10 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { 
+    createBrowserRouter, 
+    createRoutesFromElements, 
+    RouterProvider, 
+    Route 
+} from "react-router-dom"
 
 import Layout from './components/Layout';
 import Home from "./pages/Home"
@@ -9,19 +14,18 @@ import VanDetail from './pages/vans/VanDetail';
 import "./server"
 
 function App() {
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path='about' element={<About />} />
+      <Route path='vans' element={<Vans />} />
+      <Route path='vans/:id' element={<VanDetail />} />
+    </Route>
+  ))
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path='about' element={<About />} />
-            <Route path='vans' element={<Vans />} />
-            <Route path='vans/:id' element={<VanDetail />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      
+      <RouterProvider router={router} />  
     </div>
   );
 }
