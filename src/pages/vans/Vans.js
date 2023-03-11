@@ -3,8 +3,7 @@ import {
     useSearchParams, 
     useLocation, 
     Link, 
-    useLoaderData, 
-    useRouteError 
+    useLoaderData
 } from "react-router-dom"
 import { getVans } from "../api"
 
@@ -14,8 +13,7 @@ export function loader(){
 
 export default function Vans(){
     const vans = useLoaderData()
-    const error = useRouteError()
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
     const location = useLocation()
     const typeFilter = searchParams.get("type")
 
