@@ -13,19 +13,19 @@ export default function Header(){
             <h1><Link to="." className="vanlife-link">#VANLIFE</Link></h1>
             <nav>
                 <NavLink 
-                    to="/host" 
+                    to="host" 
                     className="home-link" 
                     style={({isActive}) => isActive ? activeStyles : null}>
                     Host
                 </NavLink>
                 <NavLink 
-                    to="/about" 
+                    to="about" 
                     className="home-link" 
                     style={({isActive}) => isActive ? activeStyles : null}>
                     About
                 </NavLink>
                 <NavLink 
-                    to="/vans" 
+                    to="vans" 
                     className="home-link" 
                     style={({isActive}) => isActive ? activeStyles : null}>
                     Vans
