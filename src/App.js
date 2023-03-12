@@ -9,7 +9,7 @@ import Layout from './components/Layout';
 import Home from "./pages/Home"
 import About from './pages/About'
 import Vans, { loader as VansLoader } from './pages/vans/Vans'
-import VanDetail from './pages/vans/VanDetail';
+import VanDetail, { loader as vanDetailLoader } from './pages/vans/VanDetail';
 import Error from './components/Error'
 import "./server"
 
@@ -25,7 +25,12 @@ function App() {
         loader={VansLoader}
         errorElement={<Error />}
       />
-      <Route path='vans/:id' element={<VanDetail />} />
+      <Route 
+        path='vans/:id' 
+        element={<VanDetail />} 
+        loader={vanDetailLoader} 
+        errorElement={<Error />} 
+      />
     </Route>
   ))
   return (
