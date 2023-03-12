@@ -13,7 +13,7 @@ export default function HostVans(){
         const vansEls = vans.map((van) => {
             return (
                 <div className="host-vans" key={van.id}>
-                    <Link to="" key={van.id} className="host-vans-link">
+                    <Link to={van.id} key={van.id} className="host-vans-link">
                     <div className="host-van-container">
                         <img className="host-van-img" 
                         src={van.imageUrl} alt={van.name} />

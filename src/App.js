@@ -8,6 +8,7 @@ import {
 import Error from './components/Error'
 import Layout from './components/Layout';
 import HostLayout from './components/HostLayout'
+import HostVansLayout from './components/HostVansLayout'
 import Home from "./pages/Home"
 import About from './pages/About'
 import Vans, { loader as VansLoader } from './pages/vans/Vans'
@@ -16,6 +17,10 @@ import Dashboard from './pages/host/Dashboard'
 import Income from './pages/host/Income'
 import Reviews from './pages/host/Reviews'
 import HostVans, {loader as HostVansLoader} from './pages/host/HostVans'
+import HostVanDetails from './pages/host/HostVanDetails'
+import HostVanPricing from './pages/host/HostVanPricing'
+import HostVanPhotos from './pages/host/HostVanPhotos'
+
 
 
 import "./server"
@@ -43,6 +48,11 @@ function App() {
         <Route path="income" element={<Income />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="vans" element={<HostVans />} loader={HostVansLoader} />
+        <Route path="vans/:id" element={<HostVansLayout />}>
+          <Route index element={<HostVanDetails/>} />
+          <Route path="pricing" element={<HostVanPricing/>} />
+          <Route path="photos" element={<HostVanPhotos/>} />
+        </Route>
       </Route>
     </Route>
   ))
