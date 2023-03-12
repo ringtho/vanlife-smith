@@ -8,7 +8,6 @@ import {
 import Error from './components/Error'
 import Layout from './components/Layout';
 import HostLayout from './components/HostLayout'
-import HostVansLayout from './components/HostVansLayout'
 import Home from "./pages/Home"
 import About from './pages/About'
 import Vans, { loader as VansLoader } from './pages/vans/Vans'
@@ -17,7 +16,8 @@ import Dashboard from './pages/host/Dashboard'
 import Income from './pages/host/Income'
 import Reviews from './pages/host/Reviews'
 import HostVans, {loader as HostVansLoader} from './pages/host/HostVans'
-import HostVanDetails from './pages/host/HostVanDetails'
+import HostVanDetails, { loader as HostVanDetailsLoader} from './pages/host/HostVanDetails'
+import HostVanInfo from './pages/host/HostVanInfo'
 import HostVanPricing from './pages/host/HostVanPricing'
 import HostVanPhotos from './pages/host/HostVanPhotos'
 
@@ -44,14 +44,14 @@ function App() {
         errorElement={<Error />} 
       />
       <Route path='host' element={<HostLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="income" element={<Income />} />
-        <Route path="reviews" element={<Reviews />} />
-        <Route path="vans" element={<HostVans />} loader={HostVansLoader} />
-        <Route path="vans/:id" element={<HostVansLayout />}>
-          <Route index element={<HostVanDetails/>} />
-          <Route path="pricing" element={<HostVanPricing/>} />
-          <Route path="photos" element={<HostVanPhotos/>} />
+        <Route index element={<Dashboard />} errorElement={<Error />}/>
+        <Route path="income" element={<Income />} errorElement={<Error />}/>
+        <Route path="reviews" element={<Reviews />} errorElement={<Error />}/>
+        <Route path="vans" element={<HostVans />} loader={HostVansLoader} errorElement={<Error />}/>
+        <Route path="vans/:id" element={<HostVanDetails />} loader={HostVanDetailsLoader} errorElement={<Error />}>
+          <Route index element={<HostVanInfo/>} errorElement={<Error />}/>
+          <Route path="pricing" element={<HostVanPricing/>} errorElement={<Error />}/>
+          <Route path="photos" element={<HostVanPhotos/>} errorElement={<Error />}/>
         </Route>
       </Route>
     </Route>

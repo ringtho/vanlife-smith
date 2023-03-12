@@ -8,7 +8,6 @@ export function loader(){
 
 export default function HostVans(){
     const vansPromise = useLoaderData()
-
     const renderVans = (vans) => {
         const vansEls = vans.map((van) => {
             return (

@@ -173,6 +173,28 @@ main, .header {
   text-decoration: none;
 }
 
-/* .host-vans-details {
+.host-vans-detail {
   margin-bottom: 20px;
-} */
+}
+
+.details-container {
+  padding: 32px;
+  background-color: #FFFFFF;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.detail-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 5px;
+}
+
+.detail-wrapper {
+  padding: 16px 0;
+  display: flex;
+  gap: 20px;
+  
+}
