@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import Error from './components/Error'
 import Layout from './components/Layout';
+import AuthRequired from './components/AuthRequired';
 import HostLayout from './components/HostLayout'
 import Home from "./pages/Home"
 import About from './pages/About'
@@ -45,20 +46,22 @@ function App() {
         loader={vanDetailLoader} 
         errorElement={<Error />} 
       />
-      <Route path='host' element={<HostLayout />}>
-        <Route index element={<Dashboard />} errorElement={<Error />}/>
-        <Route path="income" element={<Income />} errorElement={<Error />}/>
-        <Route path="reviews" element={<Reviews />} errorElement={<Error />}/>
-        <Route path="vans" element={<HostVans />} loader={HostVansLoader} errorElement={<Error />}/>
-        <Route 
-          path="vans/:id" 
-          element={<HostVanDetails />} 
-          loader={HostVanDetailsLoader} 
-          errorElement={<Error />}
-          >
-          <Route index element={<HostVanInfo/>} errorElement={<Error />}/>
-          <Route path="pricing" element={<HostVanPricing/>} errorElement={<Error />}/>
-          <Route path="photos" element={<HostVanPhotos/>} errorElement={<Error />}/>
+      <Route element={<AuthRequired />}>
+        <Route path='host' element={<HostLayout />}>
+          <Route index element={<Dashboard />} errorElement={<Error />}/>
+          <Route path="income" element={<Income />} errorElement={<Error />}/>
+          <Route path="reviews" element={<Reviews />} errorElement={<Error />}/>
+          <Route path="vans" element={<HostVans />} loader={HostVansLoader} errorElement={<Error />}/>
+          <Route 
+            path="vans/:id" 
+            element={<HostVanDetails />} 
+            loader={HostVanDetailsLoader} 
+            errorElement={<Error />}
+            >
+            <Route index element={<HostVanInfo/>} errorElement={<Error />}/>
+            <Route path="pricing" element={<HostVanPricing/>} errorElement={<Error />}/>
+            <Route path="photos" element={<HostVanPhotos/>} errorElement={<Error />}/>
+          </Route>
         </Route>
       </Route>
     </Route>
