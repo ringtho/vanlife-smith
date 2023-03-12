@@ -129,3 +129,46 @@ main, .header {
 .van-detail-wrapper > a {
   color: #161616;
 }
+
+.host-nav {
+  margin-bottom: 32px;
+}
+
+.host-van-container {
+  background-color: #FFFFFF;
+  margin: 16px 0;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  border-radius: 5px;
+}
+
+.host-van-img {
+  height: 80px;
+  width: 80px;
+  border-radius: 5px;
+}
+
+.host-van-names > h3,
+.host-van-names > p {
+  margin: 0;
+}
+
+.host-van-names {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.host-van-names > p {
+  color: #4d4d4d;
+}
+
+.host-van-names > h3 {
+  color: #161616;
+}
+
+.host-vans > a {
+  text-decoration: none;
+}

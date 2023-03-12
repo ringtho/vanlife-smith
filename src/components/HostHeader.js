@@ -9,9 +9,10 @@ export default function HostHeader(){
         color: "#161616"
     }
     return (
-        <nav>
+        <nav className="host-nav">
             <NavLink 
-                to="." 
+                to="."
+                end 
                 className="home-link" 
                 style={({isActive}) => isActive ? activeStyles : null}>
                 Dashboard

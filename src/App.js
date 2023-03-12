@@ -13,6 +13,9 @@ import About from './pages/About'
 import Vans, { loader as VansLoader } from './pages/vans/Vans'
 import VanDetail, { loader as vanDetailLoader } from './pages/vans/VanDetail';
 import Dashboard from './pages/host/Dashboard'
+import Income from './pages/host/Income'
+import Reviews from './pages/host/Reviews'
+import HostVans, {loader as HostVansLoader} from './pages/host/HostVans'
 
 
 import "./server"
@@ -37,6 +40,9 @@ function App() {
       />
       <Route path='host' element={<HostLayout />}>
         <Route index element={<Dashboard />} />
+        <Route path="income" element={<Income />} />
+        <Route path="reviews" element={<Reviews />} />
+        <Route path="vans" element={<HostVans />} loader={HostVansLoader} />
       </Route>
     </Route>
   ))

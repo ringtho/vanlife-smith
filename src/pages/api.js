@@ -16,3 +16,8 @@ export async function getVans(id){
     return data.vans 
 }
 
+export async function getHostVans(){
+    const res = await fetch('/api/host/vans')
+    const data = await res.json()
+    return data.vans
+}
