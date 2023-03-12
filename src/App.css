@@ -198,3 +198,14 @@ main, .header {
   gap: 20px;
   
 }
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-wrapper > input,
+.login-wrapper > button{
+  padding: 8px 16px;
+}

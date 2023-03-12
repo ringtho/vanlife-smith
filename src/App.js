@@ -20,6 +20,7 @@ import HostVanDetails, { loader as HostVanDetailsLoader} from './pages/host/Host
 import HostVanInfo from './pages/host/HostVanInfo'
 import HostVanPricing from './pages/host/HostVanPricing'
 import HostVanPhotos from './pages/host/HostVanPhotos'
+import Login from './pages/Login'
 
 
 
@@ -30,6 +31,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
+      <Route path="/login" element={<Login />} />
       <Route path='about' element={<About />} />
       <Route 
         path='vans' 
@@ -48,7 +50,12 @@ function App() {
         <Route path="income" element={<Income />} errorElement={<Error />}/>
         <Route path="reviews" element={<Reviews />} errorElement={<Error />}/>
         <Route path="vans" element={<HostVans />} loader={HostVansLoader} errorElement={<Error />}/>
-        <Route path="vans/:id" element={<HostVanDetails />} loader={HostVanDetailsLoader} errorElement={<Error />}>
+        <Route 
+          path="vans/:id" 
+          element={<HostVanDetails />} 
+          loader={HostVanDetailsLoader} 
+          errorElement={<Error />}
+          >
           <Route index element={<HostVanInfo/>} errorElement={<Error />}/>
           <Route path="pricing" element={<HostVanPricing/>} errorElement={<Error />}/>
           <Route path="photos" element={<HostVanPhotos/>} errorElement={<Error />}/>
