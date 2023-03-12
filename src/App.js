@@ -5,12 +5,16 @@ import {
     RouterProvider, 
     Route 
 } from "react-router-dom"
+import Error from './components/Error'
 import Layout from './components/Layout';
+import HostLayout from './components/HostLayout'
 import Home from "./pages/Home"
 import About from './pages/About'
 import Vans, { loader as VansLoader } from './pages/vans/Vans'
 import VanDetail, { loader as vanDetailLoader } from './pages/vans/VanDetail';
-import Error from './components/Error'
+import Dashboard from './pages/host/Dashboard'
+
+
 import "./server"
 
 function App() {
@@ -31,6 +35,9 @@ function App() {
         loader={vanDetailLoader} 
         errorElement={<Error />} 
       />
+      <Route path='host' element={<HostLayout />}>
+        <Route index element={<Dashboard />} />
+      </Route>
     </Route>
   ))
   return (
