@@ -21,7 +21,7 @@ import HostVanDetails, { loader as HostVanDetailsLoader} from './pages/host/Host
 import HostVanInfo from './pages/host/HostVanInfo'
 import HostVanPricing from './pages/host/HostVanPricing'
 import HostVanPhotos from './pages/host/HostVanPhotos'
-import Login from './pages/Login'
+import Login, {action as loginAction} from './pages/Login'
 
 
 
@@ -32,7 +32,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login />}  action={loginAction}/>
       <Route path='about' element={<About />} />
       <Route 
         path='vans' 

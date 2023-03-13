@@ -41,7 +41,8 @@ export default function Header(){
                     style={({isActive}) => isActive ? activeStyles : null}>
                     Login
                 </NavLink> 
-                {localStorage.getItem("loggedin") && <button onClick={logOut}>X</button>}
+                {localStorage.getItem("loggedin") && 
+                <button onClick={logOut}>X</button>}
             </nav>
             
         </div>
