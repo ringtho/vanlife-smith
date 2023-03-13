@@ -1,11 +1,16 @@
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, Navigate } from "react-router-dom"
 
 export default function Header(){
     const activeStyles = {
         fontWeight: "bold",
         textDecoration: "underline",
         color: "#161616"
+    }
+
+    function logOut(){
+        localStorage.removeItem("loggedin")
+        return <Navigate to="/" />
     }
 
     return (
@@ -35,7 +40,8 @@ export default function Header(){
                     className="home-link" 
                     style={({isActive}) => isActive ? activeStyles : null}>
                     Login
-                </NavLink>
+                </NavLink> 
+                {localStorage.getItem("loggedin") && <button onClick={logOut}>X</button>}
             </nav>
             
         </div>

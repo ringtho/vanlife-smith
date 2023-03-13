@@ -38,12 +38,16 @@ export async function loginUser(creds) {
     )
     const data = await res.json()
 
-    if (!res.ok) {
-        throw {
+    const errorMessage = {
             message: data.message,
             statusText: res.statusText,
             status: res.status
-        }
+    }
+
+   
+
+    if (!res.ok) {
+        throw errorMessage
     }
 
     return data
